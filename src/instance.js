@@ -56,7 +56,7 @@ export default class Instance {
 		}
 
 		const {output, outputRows, staticOutput} = this.renderer(this.rootNode);
-		const {stdin, stdout, debug} = this.options;
+		const {stdout, debug} = this.options;
 
 		// If <Static> output isn't empty, it means new children have been added to it
 		const hasStaticOutput = staticOutput && staticOutput !== '\n';
@@ -79,7 +79,7 @@ export default class Instance {
 			return;
 		}
 
-		const isSmallViewport = stdout.rows <= outputRows
+		const isSmallViewport = stdout.rows <= outputRows;
 
 		if (isSmallViewport) {
 			stdout.write(ansiEscapes.clearTerminal + this.fullStaticOutput + output);
